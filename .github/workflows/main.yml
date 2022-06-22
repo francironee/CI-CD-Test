@@ -33,11 +33,11 @@ jobs:
       # Runs a build command 
       - name: Docker build
         run: |
-          docker build ./docker -t francironee/app-hola:latest
+          docker build ./docker -t francironee/hola-mundo:latest
           
       # Runs a push command 
       - name: Docker push
         run: |
-          docker push francironee/app-hola:latest
+          docker push francironee/hola-mundo:latest
           
       
