@@ -4,7 +4,7 @@ name: Docker CI/CD Script
 on:
   pull_request:
     branches:
-      - main
+      - master
     types: [closed]
 
   # Allows you to run this workflow manually from the Actions tab
