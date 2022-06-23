@@ -4,13 +4,11 @@ name: Docker CI/CD Script
 on:
   pull_request:
     branches:
-      - master
       - desarrollo
+    types: [closed]
 
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Secuencia de tareas que se van a ejecutar
