@@ -6,7 +6,7 @@ on:
     branches:
       - master
       - desarrollo
-    types: [merged]
+    types: [closed]
 
 jobs:
   # This workflow contains a single job called "build"
