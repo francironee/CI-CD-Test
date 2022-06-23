@@ -4,6 +4,7 @@ name: Docker CI/CD Script
 on:
   pull_request:
     branches:
+      - master
       - desarrollo
     types: [closed]
 
