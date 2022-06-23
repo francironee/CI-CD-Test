@@ -7,4 +7,3 @@ El repositorio debe incluir las ramas(branches) Master y Desarrollo, ambas deben
 
 ..
  
-CAMBIO
