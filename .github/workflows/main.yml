@@ -28,11 +28,12 @@ jobs:
       # Contruye la imagen 
       - name: Docker build
         run: |
-          docker build ./docker -t francironee/hola-mundo:latest
+          docker build ./docker -t francironee/hola-mundo:dev
           
       # La pushea hacia Docker Hub 
       - name: Docker push
         run: |
-          docker push francironee/hola-mundo:latest
+          docker push francironee/hola-mundo:dev
+
           
       

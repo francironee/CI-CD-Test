@@ -1,5 +1,5 @@
-# CI-CD-Test
-m# CI/CD Practica 1
+m# CI-CD-Test
+CI/CD Practica 1
 
 Crear un script de CI/CD en el servicio Git seleccionado.
 
@@ -7,4 +7,3 @@ El repositorio debe incluir las ramas(branches) Master y Desarrollo, ambas deben
 
 BOOCA
  (ﾉ◕ ヮ◕)ﾉ 
-
