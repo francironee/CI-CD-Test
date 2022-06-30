@@ -28,12 +28,14 @@ jobs:
       # Contruye la imagen 
       - name: Docker build
         run: |
-          docker build ./docker -t francironee/hola-mundo:dev
+          docker build ./docker -t francironee/hola-mundo
           
       # La pushea hacia Docker Hub 
       - name: Docker push
+        env:
+          tag_name: ${{ needs.get_version.outputs.version }}
         run: |
-          docker push francironee/hola-mundo:dev
+          docker push francironee/hola-mundo
 
           
       
