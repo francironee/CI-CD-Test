@@ -32,10 +32,8 @@ jobs:
           
       # La pushea hacia Docker Hub 
       - name: Docker push
-        env:
-          tag_name: ${{ needs.get_version.outputs.version }}
         run: |
-          docker push francironee/hola-mundo
+          docker push francironee/hola-mundo:${{ steps.date.outputs.date }}
 
           
       
