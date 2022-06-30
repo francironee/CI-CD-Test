@@ -28,7 +28,7 @@ jobs:
       # Contruye la imagen 
       - name: Docker build
         run: |
-          docker build ./docker -t francironee/hola-mundo:${{ steps.date.outputs.date }}
+          docker build ./docker --tag francironee/hola-mundo:${{ steps.date.outputs.date }}
           
       # La pushea hacia Docker Hub 
       - name: Docker push
