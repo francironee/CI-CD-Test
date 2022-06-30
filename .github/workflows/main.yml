@@ -25,15 +25,20 @@ jobs:
         run: |
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
           
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+          
       # Contruye la imagen 
       - name: Docker build
         run: |
-          docker build ./docker --tag $DOCKER_USER/hola-mundo:${{ steps.date.outputs.date }}
+          docker build ./docker --tag $DOCKER_USER/hola-mundo:${{ steps.extract_branch.outputs.branch }}
           
       # La pushea hacia Docker Hub 
       - name: Docker push
         run: |
-          docker push $DOCKER_USER/hola-mundo:${{ steps.date.outputs.date }}
+          docker push $DOCKER_USER/hola-mundo:${{ steps.extract_branch.outputs.branch }}
 
           
       
