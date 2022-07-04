@@ -5,6 +5,7 @@ on:
     branches: 
       - master
       - desarrollo
+    types: [opened]
 
 jobs:
   run-test:
