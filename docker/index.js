@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+
   const date = new Date()
   const [month, day, year] = [date.getMonth()+1, date.getDate(), date.getFullYear()];
   const response = (`${year}${month}${day}`)
