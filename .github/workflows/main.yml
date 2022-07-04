@@ -1,6 +1,5 @@
 name: Docker CI/CD Script
 
-# Cuando se van a ejecutar las tareas
 on:
   pull_request:
     branches:
@@ -12,9 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Secuencia de tareas que se van a ejecutar
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
       # Loguea en Docker Hub
