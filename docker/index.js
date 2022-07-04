@@ -2,15 +2,13 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-  const date = new Date()
-  const [month, day, year] = [date.getMonth()+1, date.getDate(), date.getFullYear()];
-  const response = (`${year}${month}${day}`)
-  const hash = process.env.GIT_COMMIT
+const hash = process.env.GIT_COMMIT
+const tiempo = process.env.TIME
 
 
 app.get('/', (req, res) => {
   
-  res.send("Hello world CIRONE y MATRERO" + "V. " + hash + response)
+  res.send("Hello world CIRONE y MATRERO" + "V. " + hash + tiempo)
 
 })
 
