@@ -40,8 +40,8 @@ jobs:
           context: .
           push: true
           tags: |
-            docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }}
-            docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }}
+            docker.pkg.github.com/francironee/hola-mundo:${{ steps.extract_branch.outputs.branch }}
+            docker.pkg.github.com/francironee/hola-mundo:${{ steps.extract_branch.outputs.branch }}
           
       # Contruye la imagen 
       #- name: Docker build
