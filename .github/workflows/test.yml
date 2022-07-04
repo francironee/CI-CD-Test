@@ -10,23 +10,8 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.16.4
-          
-          
+    steps:   
       - uses: actions/checkout@v3
       
       
-      - name: Fetch required Go modules
-        run:  go mod download
-        
-        
-      - name: Build
-        run:  go build -v ./docker
-        
-        
-      - name: Run functional tests
-        run:  go test -v ./docker
+      - uses: ./
