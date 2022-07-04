@@ -1,10 +1,19 @@
-var express = require('express')
-var app = express()
+const express = require('express')
+const app = express()
+const port = 3000
 
-app.get('/', function (req, res) {
-  res.send('Hello World! CIRONE y MATRERO')
+  const date = new Date()
+  const [month, day, year] = [date.getMonth()+1, date.getDate(), date.getFullYear()];
+  const response = (`${year}${month}${day}`)
+  const hash = process.env.GIT_COMMIT
+
+
+app.get('/', (req, res) => {
+  
+  res.send("Hello world CIRONE y MATRERO" + "V. " + hash + response)
+
 })
 
-app.listen(8080, function () {
-  console.log('app listening on port 8080')
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
 })
