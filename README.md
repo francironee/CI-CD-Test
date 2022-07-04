@@ -1,4 +1,4 @@
-m# CI-CD-Test
+CI-CD-Test
 CI/CD Practica 1
 
 Crear un script de CI/CD en el servicio Git seleccionado.
