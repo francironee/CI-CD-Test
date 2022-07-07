@@ -2,17 +2,13 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+const gitHash = process.env.GITHASH
+const date = process.env.date
 
-const date = new Date()
-const [year, month, day] = [ date.getFullYear(), date.getMonth()+1, date.getDate()];
-const response = (`${year}${month}${day}`)
-const hash = process.env.GITHUB_SHA
 
 
 app.get('/', (req, res) => {
-  
-  res.send("Hello world CIRONE y MATRERO ... V. " + response + hash)
-
+  res.send("Hello world CIRONE y MATRERO ... V. " + date + gitHash)
 })
 
 app.listen(port, () => {
