@@ -25,26 +25,17 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-        
-      - name: Get Hash
-        id: hash
-        run: echo "git_hash=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_HASH
 
       - name: Get Date
         id: date
         run: echo "git_date=$(git rev-parse --short "$GIT_COMMITTER_DATE")" >> $GIT_COMMITTER_DATE
-
-      - name: Check Hash
-        run: echo "${{ env.hash }}"
         
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: ./docker ${{ github.sha }}
+          context: ./docker
           
           push: true
           tags: |
             docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} 
             docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} 
-          
-      
