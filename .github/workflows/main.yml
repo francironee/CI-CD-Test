@@ -30,8 +30,8 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v2
         with:
-          find: "{{date}}"
-          replace: ::set-output name=date::$(date +'%Y-%m-%d')
+          find: "{{gitHash}}"
+          replace: CICD_GIT_COMMIT
           regex: false
 
       - name: Build and push Docker image
