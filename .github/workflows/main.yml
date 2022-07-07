@@ -44,11 +44,11 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: ./docker
+          context: ./docker ${{ github.sha }}
           push: true
           tags: |
-            docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} ${{ env.branch }} ${{ env.hash }}
-            docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} ${{ env.branch }} ${{ env.hash }}
+            docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} 
+            docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} 
           
       # Contruye la imagen 
       #- name: Docker build
