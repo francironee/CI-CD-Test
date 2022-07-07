@@ -3,18 +3,20 @@ const app = express()
 const port = 3000
 
 
-  const date = new Date()
-  const [month, day, year] = [date.getMonth()+1, date.getDate(), date.getFullYear()];
-  const response = (`${year}${month}${day}`)
-  const hash = process.env.GIT_COMMIT
+const date = new Date()
+const [year, month, day] = [ date.getFullYear(), date.getMonth()+1, date.getDate()];
+const response = (`${year}${month}${day}`)
+const hash = process.env.GITHUB_SHA
 
 
 app.get('/', (req, res) => {
   
-  res.send("Hello world CIRONE y MATRERO" + "V. " + hash + response)
+  res.send("Hello world CIRONE y MATRERO ... V. " + response + hash)
 
 })
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+module.exports = app
