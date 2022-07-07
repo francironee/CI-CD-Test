@@ -27,14 +27,17 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
         
-      - name: Add SHORT_SHA env property with commit short sha
-        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+      - id: commit
+        uses: pr-mpt/actions-commit-hash@v1
+        with:
+          commit: "${{ github.event.workflow_run.head_sha }}"
+          prefix: "sha-"
 
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "{{gitHash}}"
-          replace: "${SHORT_SHA}"
+          replace: "${{ steps.commit.outputs.short }}"
           regex: false
 
       - name: Build and push Docker image
