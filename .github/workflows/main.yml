@@ -27,12 +27,11 @@ jobs:
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
-
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "{{date}}"
-          replace: "::set-output name=date::$(date +'%Y-%m-%d')"
+          replace: ::set-output name=date::$(date +'%Y-%m-%d')
           regex: false
 
       - name: Build and push Docker image
