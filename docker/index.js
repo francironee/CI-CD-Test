@@ -3,10 +3,10 @@ const app = express()
 const port = 3000
 
 const gitHash = {}
-const date = {}
+const date = process.env.DATE
 
 app.get('/', (req, res) => {
-  res.send("Hello world CIRONE y MATRERO ... V. {{date}}, {{gitHash}}")
+  res.send("Hello world CIRONE y MATRERO ... V." + date + "{{gitHash}}")
 })
 
 app.listen(port, () => {
