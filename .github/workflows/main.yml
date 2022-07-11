@@ -22,15 +22,23 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Extract branch name
+      - name: GET branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
         
-      - name: Get  date
-        run:  echo "DATE=$(date --rfc-3339=date)" >> ${GITHUB_ENV}
+      - name: Get date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        
+      - name: Find and Replace date
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{{date}}"
+          replace: "${{steps.date.outputs.date}}"
+          regex: false
           
-      - name: Find and Replace
+      - name: Find and Replace hash
         uses: jacobtomlinson/gha-find-replace@v2
         with:
           find: "{{gitHash}}"
@@ -41,7 +49,6 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc 
         with:
           context: ./docker
-          
           push: true
           tags: |
             docker.pkg.github.com/${{ github.repository }}/hola-mundo:${{ steps.extract_branch.outputs.branch }} 
