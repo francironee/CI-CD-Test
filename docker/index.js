@@ -6,7 +6,7 @@ const gitHash = {}
 const date = {}
 
 app.get('/', (req, res) => {
-  res.send("Hello world CIRONE y MATRERO ... V. {{date}} | {{gitHash}}")
+  res.send("Hello world CIRONE y MATRERO ... V. {{date}} , {{gitHash}}")
 })
 
 app.listen(port, () => {
